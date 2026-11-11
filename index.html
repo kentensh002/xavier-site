@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Xavier You — Photographe auteur</title>
   <meta name="description" content="Xavier You, photographe auteur. Portrait, mode et abstraction, en noir et blanc comme en couleur.">
+  <link rel="canonical" href="https://xavieryou.com/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Xavier You">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Xavier You — Photographe auteur">
+  <meta property="og:description" content="Xavier You, photographe auteur. Portrait, mode et abstraction, en noir et blanc comme en couleur.">
+  <meta property="og:url" content="https://xavieryou.com/">
+  <meta property="og:image" content="https://xavieryou.com/images/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -17,28 +29,29 @@
     <a href="index.html" class="navbar-brand">XAVIER YOU</a>
     <ul class="navbar-links">
       <li class="dropdown">
-        <button class="dropdown-toggle">PORTFOLIO</button>
+        <button class="dropdown-toggle" type="button">PORTFOLIO</button>
         <div class="dropdown-menu">
-          <a href="serie-corps.html">Étude de corps</a>
-          <a href="serie-fragments.html">Fragments</a>
-          <a href="serie-memoire.html">Mémoire diffuse</a>
+          <a href="serie-nacre.html">À fleur de nacre</a>
+          <a href="serie-pose.html">Le temps d’une pose</a>
+          <a href="serie-nuit.html">La nuit lui appartient</a>
+          <a href="serie-lianes.html">La chambre des lianes</a>
         </div>
       </li>
       <li><a href="a-propos.html">À PROPOS</a></li>
       <li><a href="contact.html">CONTACT</a></li>
     </ul>
-    <button class="navbar-toggle" aria-label="Menu">
+    <button class="navbar-toggle" type="button" aria-label="Menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
   </nav>
 
-  <!-- Mobile menu -->
   <div class="mobile-menu">
-    <a href="serie-corps.html">Étude de corps</a>
-    <a href="serie-fragments.html">Fragments</a>
-    <a href="serie-memoire.html">Mémoire diffuse</a>
+    <a href="serie-nacre.html">À fleur de nacre</a>
+    <a href="serie-pose.html">Le temps d’une pose</a>
+    <a href="serie-nuit.html">La nuit lui appartient</a>
+    <a href="serie-lianes.html">La chambre des lianes</a>
     <a href="a-propos.html">À propos</a>
     <a href="contact.html">Contact</a>
   </div>
@@ -47,48 +60,51 @@
   <section class="hero">
     <div class="hero-wrapper">
       <div class="hero-image-col">
-        <div class="hero-image-placeholder"></div>
+        <img src="images/pose/04-1400.webp" srcset="images/pose/04-800.webp 800w, images/pose/04-1400.webp 1400w, images/pose/04-2400.webp 2400w" sizes="(max-width: 1024px) 100vw, 50vw" width="1400" height="1082" alt="Portrait en noir et blanc, Paris, 2021" loading="eager" fetchpriority="high" decoding="async" style="object-position:100% 50%">
       </div>
       <div class="hero-text-col">
-        <h1 class="hero-title">Photographe de mode, argentique et noir&nbsp;&&nbsp;blanc.</h1>
-        <p class="hero-description">Une œuvre photographique radicale et intemporelle, où le noir et blanc devient un langage à part entière. Le corps comme point de tension entre le tangible et l'intangible.</p>
-        <a href="contact.html" class="btn">me contacter</a>
+        <h1 class="hero-title">Photographe auteur.</h1>
+        <p class="hero-description">Portrait, mode et abstraction, en noir et blanc comme en couleur. <span class="nowrap">France · Italie · Suisse.</span></p>
+        <a href="contact.html" class="btn">contact</a>
       </div>
     </div>
   </section>
 
   <div class="spacer-md"></div>
 
-  <!-- Section titre Séries -->
+  <!-- Séries -->
   <div class="section-title">
     <h2>Séries</h2>
   </div>
 
-  <!-- Cartes séries (comme Prestations Blanchard) -->
   <div class="cards-section">
     <div class="cards-grid">
-      <a href="serie-corps.html" class="card">
-        <div class="card-placeholder"></div>
+      <a href="serie-nacre.html" class="card">
+        <img src="images/nacre/05-1400.webp" srcset="images/nacre/05-800.webp 533w, images/nacre/05-1400.webp 933w, images/nacre/05-2400.webp 1600w" sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 25vw" width="933" height="1400" alt="À fleur de nacre, Cannes, 2019" loading="lazy" decoding="async" class="card-image" style="object-position:50% 50%">
         <div class="card-content">
-          <h2>ÉTUDE DE CORPS</h2>
+          <h2>À fleur de nacre</h2>
+          <p>Cannes, 2019</p>
         </div>
       </a>
-      <a href="serie-fragments.html" class="card">
-        <div class="card-placeholder"></div>
+      <a href="serie-pose.html" class="card">
+        <img src="images/pose/02-1400.webp" srcset="images/pose/02-800.webp 530w, images/pose/02-1400.webp 928w, images/pose/02-2400.webp 1591w" sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 25vw" width="928" height="1400" alt="Le temps d’une pose, Paris, 2021" loading="lazy" decoding="async" class="card-image" style="object-position:50% 50%">
         <div class="card-content">
-          <h2>FRAGMENTS</h2>
+          <h2>Le temps d’une pose</h2>
+          <p>Paris, 2021</p>
         </div>
       </a>
-      <a href="serie-memoire.html" class="card">
-        <div class="card-placeholder"></div>
+      <a href="serie-nuit.html" class="card">
+        <img src="images/nuit/02-1400.webp" srcset="images/nuit/02-800.webp 800w, images/nuit/02-1400.webp 1400w, images/nuit/02-2400.webp 2400w" sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 25vw" width="1400" height="933" alt="La nuit lui appartient, Montpellier, 2021" loading="lazy" decoding="async" class="card-image" style="object-position:50% 50%">
         <div class="card-content">
-          <h2>MÉMOIRE DIFFUSE</h2>
+          <h2>La nuit lui appartient</h2>
+          <p>Montpellier, 2021</p>
         </div>
       </a>
-      <a href="a-propos.html" class="card">
-        <div class="card-placeholder"></div>
+      <a href="serie-lianes.html" class="card">
+        <img src="images/lianes/01-1400.webp" srcset="images/lianes/01-800.webp 800w, images/lianes/01-1400.webp 1400w, images/lianes/01-2400.webp 2400w" sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 25vw" width="1400" height="928" alt="La chambre des lianes, Cannes, 2022" loading="lazy" decoding="async" class="card-image" style="object-position:22% 50%">
         <div class="card-content">
-          <h2>À PROPOS</h2>
+          <h2>La chambre des lianes</h2>
+          <p>Cannes, 2022</p>
         </div>
       </a>
     </div>
@@ -96,55 +112,36 @@
 
   <div class="spacer-lg"></div>
 
-  <!-- Mon approche -->
+  <!-- À propos (extrait du texte de Xavier) -->
   <div class="approche-section">
-    <h2>Mon approche</h2>
-    <p>Mon travail naît d'un rapport au temps instable. Je photographie le corps comme un point de tension, un espace où se rencontrent présence physique et dimension invisible. À travers une pratique principalement argentique, je cherche à ralentir le regard, à extraire les images de toute immédiateté.</p>
-    <a href="a-propos.html" class="btn">à propos</a>
+    <h2>À propos</h2>
+    <p>La peinture, la poésie et la musique nourrissent son regard. Sa photographie accueille aussi bien la sensualité et la mise en scène que le silence et la contemplation.</p>
+    <a href="a-propos.html" class="btn">lire la présentation</a>
   </div>
 
   <!-- Banner marquee -->
-  <div class="banner">
+  <div class="banner" aria-hidden="true">
     <div class="banner-track">
-      <span class="banner-text">· étude de corps · fragments · mémoire diffuse · argentique · noir et blanc · mode · portrait · série · étude de corps · fragments · mémoire diffuse · argentique · noir et blanc · mode · portrait · série · </span>
-      <span class="banner-text">· étude de corps · fragments · mémoire diffuse · argentique · noir et blanc · mode · portrait · série · étude de corps · fragments · mémoire diffuse · argentique · noir et blanc · mode · portrait · série · </span>
+      <span class="banner-text">· à fleur de nacre · le temps d’une pose · la nuit lui appartient · la chambre des lianes · portrait · mode · abstraction · noir et blanc · couleur · argentique · · à fleur de nacre · le temps d’une pose · la nuit lui appartient · la chambre des lianes · portrait · mode · abstraction · noir et blanc · couleur · argentique · </span>
+      <span class="banner-text">· à fleur de nacre · le temps d’une pose · la nuit lui appartient · la chambre des lianes · portrait · mode · abstraction · noir et blanc · couleur · argentique · · à fleur de nacre · le temps d’une pose · la nuit lui appartient · la chambre des lianes · portrait · mode · abstraction · noir et blanc · couleur · argentique · </span>
     </div>
   </div>
 
-  <!-- Galerie grid (4 rangees de 4 comme Blanchard) -->
-  <div class="spacer-md"></div>
-
+  <!-- Sélection -->
   <div class="gallery-section">
-    <div class="gallery-grid">
-      <div class="gallery-item"><div class="gallery-placeholder"></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"></div></div>
-    </div>
-  </div>
-  <div class="gallery-section">
-    <div class="gallery-grid">
-      <div class="gallery-item"><div class="gallery-placeholder"></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"></div></div>
-    </div>
-  </div>
-  <div class="gallery-section">
-    <div class="gallery-grid">
-      <div class="gallery-item"><div class="gallery-placeholder"></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"></div></div>
-    </div>
-  </div>
-  <div class="gallery-section">
-    <div class="gallery-grid">
-      <div class="gallery-item"><div class="gallery-placeholder"></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"></div></div>
-    </div>
+      <div class="g-row">
+        <a class="g-item" style="--r:1.5005" href="serie-nacre.html"><img src="images/nacre/02-1400.webp" srcset="images/nacre/02-800.webp 800w, images/nacre/02-1400.webp 1400w, images/nacre/02-2400.webp 2400w" sizes="(max-width: 640px) 100vw, 50vw" width="1400" height="933" alt="À fleur de nacre, Cannes, 2019" loading="lazy" decoding="async"></a>
+        <a class="g-item" style="--r:1.5086" href="serie-lianes.html"><img src="images/lianes/01-1400.webp" srcset="images/lianes/01-800.webp 800w, images/lianes/01-1400.webp 1400w, images/lianes/01-2400.webp 2400w" sizes="(max-width: 640px) 100vw, 50vw" width="1400" height="928" alt="La chambre des lianes, Cannes, 2022" loading="lazy" decoding="async"></a>
+      </div>
+      <div class="g-row">
+        <a class="g-item" style="--r:1.5086" href="serie-pose.html"><img src="images/pose/03-1400.webp" srcset="images/pose/03-800.webp 800w, images/pose/03-1400.webp 1400w, images/pose/03-2400.webp 2400w" sizes="(max-width: 640px) 100vw, 50vw" width="1400" height="928" alt="Le temps d’une pose, Paris, 2021" loading="lazy" decoding="async"></a>
+        <a class="g-item" style="--r:1.5005" href="serie-nuit.html"><img src="images/nuit/01-1400.webp" srcset="images/nuit/01-800.webp 800w, images/nuit/01-1400.webp 1400w, images/nuit/01-2400.webp 2400w" sizes="(max-width: 640px) 100vw, 50vw" width="1400" height="933" alt="La nuit lui appartient, Montpellier, 2021" loading="lazy" decoding="async"></a>
+      </div>
+      <div class="g-row">
+        <a class="g-item" style="--r:1.3146" href="serie-lianes.html"><img src="images/lianes/03-1400.webp" srcset="images/lianes/03-800.webp 800w, images/lianes/03-1400.webp 1400w, images/lianes/03-2400.webp 2400w" sizes="(max-width: 640px) 100vw, 32vw" width="1400" height="1065" alt="La chambre des lianes, Cannes, 2022" loading="lazy" decoding="async"></a>
+        <a class="g-item" style="--r:1.5005" href="serie-nacre.html"><img src="images/nacre/04-1400.webp" srcset="images/nacre/04-800.webp 800w, images/nacre/04-1400.webp 1400w, images/nacre/04-2400.webp 2400w" sizes="(max-width: 640px) 100vw, 37vw" width="1400" height="933" alt="À fleur de nacre, Cannes, 2019" loading="lazy" decoding="async"></a>
+        <a class="g-item" style="--r:1.2939" href="serie-pose.html"><img src="images/pose/04-1400.webp" srcset="images/pose/04-800.webp 800w, images/pose/04-1400.webp 1400w, images/pose/04-2400.webp 2400w" sizes="(max-width: 640px) 100vw, 31vw" width="1400" height="1082" alt="Le temps d’une pose, Paris, 2021" loading="lazy" decoding="async"></a>
+      </div>
   </div>
 
   <div class="spacer-lg"></div>
@@ -155,13 +152,13 @@
       <div class="footer-col">
         <p class="footer-description">Xavier You, photographe auteur. France · Italie · Suisse.</p>
         <a href="mailto:contact@xavieryou.com" class="footer-contact-link">contact@xavieryou.com</a>
-        <a href="https://instagram.com/" class="footer-contact-link" target="_blank" rel="noopener">Instagram</a>
       </div>
       <div class="footer-col">
         <ul class="footer-nav">
-          <li><a href="serie-corps.html">Étude de corps</a></li>
-          <li><a href="serie-fragments.html">Fragments</a></li>
-          <li><a href="serie-memoire.html">Mémoire diffuse</a></li>
+          <li><a href="serie-nacre.html">À fleur de nacre</a></li>
+          <li><a href="serie-pose.html">Le temps d’une pose</a></li>
+          <li><a href="serie-nuit.html">La nuit lui appartient</a></li>
+          <li><a href="serie-lianes.html">La chambre des lianes</a></li>
         </ul>
       </div>
       <div class="footer-col">

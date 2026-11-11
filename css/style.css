@@ -282,8 +282,10 @@ h1, h2, h3 {
 .hero-image-col img {
   width: 100%;
   height: auto;
+  aspect-ratio: 3 / 4;
   max-height: calc(100vh - var(--nav-height) - 60px);
   object-fit: cover;
+  background: #eae8e5;
 }
 
 .hero-image-placeholder {
@@ -397,15 +399,23 @@ h1, h2, h3 {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20px;
-  background: linear-gradient(transparent, rgba(0,0,0,0.4));
+  padding: 56px 20px 20px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.55));
 }
 
 .card-content h2 {
   font-family: var(--font-heading);
   font-size: 20px;
   font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
   color: white;
+}
+
+.card-content p {
+  margin-top: 4px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* ============================================
@@ -887,3 +897,288 @@ h1, h2, h3 {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================
+   NAVIGATION — clavier + page active
+   ============================================ */
+.dropdown:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu a.active {
+  font-weight: 500;
+}
+
+/* ============================================
+   GALERIE EN RANGÉES (photos jamais recadrées)
+   Chaque photo prend une largeur proportionnelle à son
+   format (--r) : toutes les photos d'une rangée ont la même hauteur.
+   ============================================ */
+.g-row {
+  display: flex;
+  gap: var(--grid-gap);
+}
+
+.g-item {
+  display: block;
+  flex: var(--r, 1.5) 1 0%;
+  min-width: 0;
+  overflow: hidden;
+  background: #eae8e5;
+}
+
+.g-item img {
+  width: 100%;
+  height: auto;
+}
+
+.g-item[data-lb] {
+  cursor: zoom-in;
+}
+
+.g-item:hover {
+  opacity: 1;
+}
+
+.g-item img {
+  transition: transform 0.5s var(--ease-out);
+}
+
+.g-item:hover img {
+  transform: scale(1.02);
+}
+
+.gallery-section .g-row + .g-row {
+  margin-top: var(--grid-gap);
+}
+
+/* ============================================
+   PAGE SÉRIE
+   ============================================ */
+.serie-page {
+  margin-top: var(--nav-height);
+}
+
+.serie-head {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 72px var(--container-padding) 48px;
+}
+
+.serie-kicker {
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.serie-head h1 {
+  font-size: clamp(36px, 6.5vw, 76px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.serie-meta {
+  margin-top: 16px;
+  font-size: 17px;
+  color: var(--text-muted);
+}
+
+.serie-gallery {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.serie-gallery .g-row + .g-row {
+  margin-top: var(--grid-gap);
+}
+
+.serie-nav {
+  max-width: var(--container-max);
+  margin: 96px auto 0;
+  padding: 0 var(--container-padding);
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.serie-nav-link {
+  display: block;
+  flex: 1;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+}
+
+.serie-nav-next {
+  text-align: right;
+}
+
+.serie-nav-label {
+  display: block;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.serie-nav-title {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* ============================================
+   CONTACT — photo à droite
+   ============================================ */
+.contact-photo-col {
+  flex: 1;
+  max-width: 500px;
+}
+
+.contact-photo-col img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: #eae8e5;
+}
+
+/* ============================================
+   VISIONNEUSE (lightbox)
+   ============================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111111;
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lb-stage {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lb-stage img {
+  width: auto;
+  height: auto;
+  max-width: 92vw;
+  max-height: calc(100vh - 96px);
+  object-fit: contain;
+}
+
+.lb-caption {
+  margin-top: 14px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: #d9d6d1;
+}
+
+.lb-btn {
+  position: absolute;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 1;
+  padding: 14px 18px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.lb-btn:hover,
+.lb-btn:focus-visible {
+  opacity: 1;
+}
+
+.lb-close { top: 6px; right: 6px; }
+.lb-prev { left: 4px; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 4px; top: 50%; transform: translateY(-50%); }
+
+@media (max-width: 1024px) {
+  .contact-photo-col {
+    max-width: 100%;
+  }
+  .contact-photo-col img {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 640px) {
+  .g-row {
+    flex-direction: column;
+  }
+  .g-item {
+    flex: none;
+    width: 100%;
+  }
+  .serie-head {
+    padding: 48px var(--container-padding) 32px;
+  }
+  .serie-nav {
+    flex-direction: column;
+    gap: 0;
+    margin-top: 64px;
+  }
+  .serie-nav-next {
+    text-align: left;
+  }
+  .lb-btn { font-size: 32px; padding: 12px 14px; }
+  /* sur téléphone, les flèches passent sous la photo (le balayage fonctionne aussi) */
+  .lb-prev,
+  .lb-next {
+    top: auto;
+    bottom: 20px;
+    transform: none;
+  }
+  .lb-prev { left: 12px; }
+  .lb-next { right: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner-track { animation: none; }
+  .g-item img, .card-image { transition: none; }
+}
+
+/* ============================================
+   PAGE 404
+   ============================================ */
+.notfound-page {
+  margin-top: var(--nav-height);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 120px var(--container-padding);
+  text-align: center;
+}
+
+.notfound-page h1 {
+  font-size: clamp(32px, 6vw, 56px);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.notfound-page p:not(.serie-kicker) {
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.nowrap { white-space: nowrap; }

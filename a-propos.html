@@ -4,7 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>À propos — Xavier You</title>
-  <meta name="description" content="Présentation de Xavier You, photographe auteur : portrait, mode et abstraction, entre la France, l'Italie et la Suisse.">
+  <meta name="description" content="Présentation de Xavier You, photographe auteur : portrait, mode et abstraction, entre la France, l&#x27;Italie et la Suisse.">
+  <link rel="canonical" href="https://xavieryou.com/a-propos.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Xavier You">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="À propos — Xavier You">
+  <meta property="og:description" content="Présentation de Xavier You, photographe auteur : portrait, mode et abstraction, entre la France, l&#x27;Italie et la Suisse.">
+  <meta property="og:url" content="https://xavieryou.com/a-propos.html">
+  <meta property="og:image" content="https://xavieryou.com/images/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -17,17 +29,18 @@
     <a href="index.html" class="navbar-brand">XAVIER YOU</a>
     <ul class="navbar-links">
       <li class="dropdown">
-        <button class="dropdown-toggle">PORTFOLIO</button>
+        <button class="dropdown-toggle" type="button">PORTFOLIO</button>
         <div class="dropdown-menu">
-          <a href="serie-corps.html">Étude de corps</a>
-          <a href="serie-fragments.html">Fragments</a>
-          <a href="serie-memoire.html">Mémoire diffuse</a>
+          <a href="serie-nacre.html">À fleur de nacre</a>
+          <a href="serie-pose.html">Le temps d’une pose</a>
+          <a href="serie-nuit.html">La nuit lui appartient</a>
+          <a href="serie-lianes.html">La chambre des lianes</a>
         </div>
       </li>
       <li><a href="a-propos.html">À PROPOS</a></li>
       <li><a href="contact.html">CONTACT</a></li>
     </ul>
-    <button class="navbar-toggle" aria-label="Menu">
+    <button class="navbar-toggle" type="button" aria-label="Menu">
       <span></span>
       <span></span>
       <span></span>
@@ -35,9 +48,10 @@
   </nav>
 
   <div class="mobile-menu">
-    <a href="serie-corps.html">Étude de corps</a>
-    <a href="serie-fragments.html">Fragments</a>
-    <a href="serie-memoire.html">Mémoire diffuse</a>
+    <a href="serie-nacre.html">À fleur de nacre</a>
+    <a href="serie-pose.html">Le temps d’une pose</a>
+    <a href="serie-nuit.html">La nuit lui appartient</a>
+    <a href="serie-lianes.html">La chambre des lianes</a>
     <a href="a-propos.html">À propos</a>
     <a href="contact.html">Contact</a>
   </div>
@@ -59,12 +73,52 @@
           <p>À travers ces différentes approches, Xavier You cherche à créer des images qui traversent le temps&nbsp;: des photographies auxquelles on revient pour une émotion, un détail ou une énigme encore ouverte.</p>
         </div>
         <div style="margin-top: 32px;">
-          <a href="contact.html" class="btn">me contacter</a>
+          <a href="contact.html" class="btn">contact</a>
         </div>
       </div>
     </div>
 
   </main>
+
+  <div class="spacer-lg"></div>
+
+  <!-- Séries -->
+  <div class="section-title">
+    <h2>Séries</h2>
+  </div>
+
+  <div class="cards-section">
+    <div class="cards-grid">
+      <a href="serie-nacre.html" class="card">
+        <img src="images/nacre/05-1400.webp" srcset="images/nacre/05-800.webp 533w, images/nacre/05-1400.webp 933w, images/nacre/05-2400.webp 1600w" sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 25vw" width="933" height="1400" alt="À fleur de nacre, Cannes, 2019" loading="lazy" decoding="async" class="card-image" style="object-position:50% 50%">
+        <div class="card-content">
+          <h2>À fleur de nacre</h2>
+          <p>Cannes, 2019</p>
+        </div>
+      </a>
+      <a href="serie-pose.html" class="card">
+        <img src="images/pose/02-1400.webp" srcset="images/pose/02-800.webp 530w, images/pose/02-1400.webp 928w, images/pose/02-2400.webp 1591w" sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 25vw" width="928" height="1400" alt="Le temps d’une pose, Paris, 2021" loading="lazy" decoding="async" class="card-image" style="object-position:50% 50%">
+        <div class="card-content">
+          <h2>Le temps d’une pose</h2>
+          <p>Paris, 2021</p>
+        </div>
+      </a>
+      <a href="serie-nuit.html" class="card">
+        <img src="images/nuit/02-1400.webp" srcset="images/nuit/02-800.webp 800w, images/nuit/02-1400.webp 1400w, images/nuit/02-2400.webp 2400w" sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 25vw" width="1400" height="933" alt="La nuit lui appartient, Montpellier, 2021" loading="lazy" decoding="async" class="card-image" style="object-position:50% 50%">
+        <div class="card-content">
+          <h2>La nuit lui appartient</h2>
+          <p>Montpellier, 2021</p>
+        </div>
+      </a>
+      <a href="serie-lianes.html" class="card">
+        <img src="images/lianes/01-1400.webp" srcset="images/lianes/01-800.webp 800w, images/lianes/01-1400.webp 1400w, images/lianes/01-2400.webp 2400w" sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 25vw" width="1400" height="928" alt="La chambre des lianes, Cannes, 2022" loading="lazy" decoding="async" class="card-image" style="object-position:22% 50%">
+        <div class="card-content">
+          <h2>La chambre des lianes</h2>
+          <p>Cannes, 2022</p>
+        </div>
+      </a>
+    </div>
+  </div>
 
   <div class="spacer-lg"></div>
 
@@ -74,13 +128,13 @@
       <div class="footer-col">
         <p class="footer-description">Xavier You, photographe auteur. France · Italie · Suisse.</p>
         <a href="mailto:contact@xavieryou.com" class="footer-contact-link">contact@xavieryou.com</a>
-        <a href="https://instagram.com/" class="footer-contact-link" target="_blank" rel="noopener">Instagram</a>
       </div>
       <div class="footer-col">
         <ul class="footer-nav">
-          <li><a href="serie-corps.html">Étude de corps</a></li>
-          <li><a href="serie-fragments.html">Fragments</a></li>
-          <li><a href="serie-memoire.html">Mémoire diffuse</a></li>
+          <li><a href="serie-nacre.html">À fleur de nacre</a></li>
+          <li><a href="serie-pose.html">Le temps d’une pose</a></li>
+          <li><a href="serie-nuit.html">La nuit lui appartient</a></li>
+          <li><a href="serie-lianes.html">La chambre des lianes</a></li>
         </ul>
       </div>
       <div class="footer-col">
