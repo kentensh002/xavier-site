@@ -364,14 +364,16 @@ h1, h2, h3 {
 }
 
 .cards-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* la dernière rangée, incomplète, reste centrée */
   gap: var(--grid-gap);
 }
 
 .card {
   position: relative;
   overflow: hidden;
+  flex: 0 0 calc((100% - 3 * var(--grid-gap)) / 4);
   aspect-ratio: 3/4;
   background: #eae8e5;
   cursor: pointer;
@@ -824,8 +826,8 @@ h1, h2, h3 {
   .hero-text-col {
     padding: 40px 0;
   }
-  .cards-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .card {
+    flex-basis: calc((100% - var(--grid-gap)) / 2);
   }
   .gallery-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -885,8 +887,8 @@ h1, h2, h3 {
 }
 
 @media (max-width: 480px) {
-  .cards-grid {
-    grid-template-columns: 1fr;
+  .card {
+    flex-basis: 100%;
   }
 
   .gallery-grid {
