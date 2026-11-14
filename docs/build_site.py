@@ -30,9 +30,9 @@ SERIES = [
                 "c8f01fc4-e7b0-43a8-a73a-c0b8a9b6619b"],
          rows=[[0], [1, 2]], cover=1, cover_pos="50% 40%"),
     dict(slug="lianes", title="La chambre des lianes", place="Cannes", year=2022, folder="serie4",
-         files=["976AF834-113D-4077-89FB-D48F7D11D5D0", "3EA3002F-985C-4B55-8003-1A559231FF43",
+         files=["IMG_6958", "3EA3002F-985C-4B55-8003-1A559231FF43",
                 "4DFF6CA7-C472-48E4-978F-4B5217E8804D", "78599995-7E84-43E0-BB59-736A15728337"],
-         rows=[[0], [1, 2, 3]], cover=0, cover_pos="22% 50%", q=68),
+         rows=[[0], [1, 2, 3]], cover=0, cover_pos="42% 50%", q=68),
 ]
 
 HERO = ("pose", 3)           # portrait noir et blanc
