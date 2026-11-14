@@ -6,10 +6,16 @@
   <title>Xavier You — Photographe auteur</title>
   <meta name="description" content="Xavier You, photographe auteur. Portrait, mode et abstraction, en noir et blanc comme en couleur.">
   <link rel="canonical" href="https://xavieryou.com/">
+  <link rel="alternate" hreflang="fr" href="https://xavieryou.com/">
+  <link rel="alternate" hreflang="en" href="https://xavieryou.com/en/">
+  <link rel="alternate" hreflang="it" href="https://xavieryou.com/it/">
+  <link rel="alternate" hreflang="x-default" href="https://xavieryou.com/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Xavier You">
   <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="it_IT">
   <meta property="og:title" content="Xavier You — Photographe auteur">
   <meta property="og:description" content="Xavier You, photographe auteur. Portrait, mode et abstraction, en noir et blanc comme en couleur.">
   <meta property="og:url" content="https://xavieryou.com/">
@@ -42,6 +48,11 @@
       </li>
       <li><a href="a-propos.html">À PROPOS</a></li>
       <li><a href="contact.html">CONTACT</a></li>
+      <li class="lang-switch">
+        <span aria-current="true">FR</span>
+        <a href="en/" hreflang="en" lang="en" title="English">EN</a>
+        <a href="it/" hreflang="it" lang="it" title="Italiano">IT</a>
+      </li>
     </ul>
     <button class="navbar-toggle" type="button" aria-label="Menu">
       <span></span>
@@ -60,6 +71,11 @@
     <a href="serie-lianes.html">La chambre des lianes</a>
     <a href="a-propos.html">À propos</a>
     <a href="contact.html">Contact</a>
+    <div class="mobile-lang">
+      <span aria-current="true">FR</span>
+      <a href="en/" hreflang="en" lang="en" title="English">EN</a>
+      <a href="it/" hreflang="it" lang="it" title="Italiano">IT</a>
+    </div>
   </div>
 
   <!-- Hero split 50/50 -->
@@ -146,32 +162,7 @@
     <a href="a-propos.html" class="btn">lire la présentation</a>
   </div>
 
-  <!-- Banner marquee -->
-  <div class="banner" aria-hidden="true">
-    <div class="banner-track">
-      <span class="banner-text">· à fleur de nacre · sous le rouge, à dessein · isis à demi dévoilée · le temps d’une pose · la nuit lui appartient · pink flow · la chambre des lianes · portrait · mode · abstraction · noir et blanc · couleur · argentique · · à fleur de nacre · sous le rouge, à dessein · isis à demi dévoilée · le temps d’une pose · la nuit lui appartient · pink flow · la chambre des lianes · portrait · mode · abstraction · noir et blanc · couleur · argentique · </span>
-      <span class="banner-text">· à fleur de nacre · sous le rouge, à dessein · isis à demi dévoilée · le temps d’une pose · la nuit lui appartient · pink flow · la chambre des lianes · portrait · mode · abstraction · noir et blanc · couleur · argentique · · à fleur de nacre · sous le rouge, à dessein · isis à demi dévoilée · le temps d’une pose · la nuit lui appartient · pink flow · la chambre des lianes · portrait · mode · abstraction · noir et blanc · couleur · argentique · </span>
-    </div>
-  </div>
-
-  <!-- Sélection -->
-  <div class="gallery-section">
-      <div class="g-row">
-        <a class="g-item" style="--r:1.5005" href="serie-nacre.html"><img src="images/nacre/02-1400.webp" srcset="images/nacre/02-800.webp 800w, images/nacre/02-1400.webp 1400w, images/nacre/02-2400.webp 2400w" sizes="(max-width: 640px) 100vw, 50vw" width="1400" height="933" alt="À fleur de nacre, Cannes, 2019" loading="lazy" decoding="async"></a>
-        <a class="g-item" style="--r:1.5086" href="serie-lianes.html"><img src="images/lianes/01-1400.webp" srcset="images/lianes/01-800.webp 800w, images/lianes/01-1400.webp 1400w, images/lianes/01-2400.webp 2400w" sizes="(max-width: 640px) 100vw, 50vw" width="1400" height="928" alt="La chambre des lianes, Cannes, 2022" loading="lazy" decoding="async"></a>
-      </div>
-      <div class="g-row">
-        <a class="g-item" style="--r:1.5086" href="serie-pose.html"><img src="images/pose/03-1400.webp" srcset="images/pose/03-800.webp 800w, images/pose/03-1400.webp 1400w, images/pose/03-2400.webp 2400w" sizes="(max-width: 640px) 100vw, 50vw" width="1400" height="928" alt="Le temps d’une pose, Paris, 2021" loading="lazy" decoding="async"></a>
-        <a class="g-item" style="--r:1.5005" href="serie-nuit.html"><img src="images/nuit/01-1400.webp" srcset="images/nuit/01-800.webp 800w, images/nuit/01-1400.webp 1400w, images/nuit/01-2400.webp 2400w" sizes="(max-width: 640px) 100vw, 50vw" width="1400" height="933" alt="La nuit lui appartient, Montpellier, 2021" loading="lazy" decoding="async"></a>
-      </div>
-      <div class="g-row">
-        <a class="g-item" style="--r:1.0000" href="serie-isis.html"><img src="images/isis/01-1400.webp" srcset="images/isis/01-800.webp 800w, images/isis/01-1400.webp 1400w, images/isis/01-2400.webp 2400w" sizes="(max-width: 640px) 100vw, 27vw" width="1400" height="1400" alt="Isis à demi dévoilée, Cannes, 2019" loading="lazy" decoding="async"></a>
-        <a class="g-item" style="--r:1.4721" href="serie-pink.html"><img src="images/pink/01-1400.webp" srcset="images/pink/01-800.webp 800w, images/pink/01-1400.webp 1400w, images/pink/01-2400.webp 1405w" sizes="(max-width: 640px) 100vw, 39vw" width="1400" height="951" alt="Pink Flow, Festival de Cannes, 2021" loading="lazy" decoding="async"></a>
-        <a class="g-item" style="--r:1.2939" href="serie-pose.html"><img src="images/pose/04-1400.webp" srcset="images/pose/04-800.webp 800w, images/pose/04-1400.webp 1400w, images/pose/04-2400.webp 2400w" sizes="(max-width: 640px) 100vw, 34vw" width="1400" height="1082" alt="Le temps d’une pose, Paris, 2021" loading="lazy" decoding="async"></a>
-      </div>
-  </div>
-
-  <div class="spacer-lg"></div>
+  <div class="spacer-md"></div>
 
   <!-- Footer -->
   <footer class="footer">

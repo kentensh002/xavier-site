@@ -1184,3 +1184,52 @@ h1, h2, h3 {
 }
 
 .nowrap { white-space: nowrap; }
+
+/* ============================================
+   SÉLECTEUR DE LANGUE (FR · EN · IT)
+   ============================================ */
+.navbar-links .lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 28px;
+  border-left: 1px solid var(--border);
+}
+
+.lang-switch a,
+.lang-switch span {
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--text);
+}
+
+.lang-switch a { opacity: 0.55; }
+.lang-switch a:hover { opacity: 1; }
+.lang-switch span[aria-current] { font-weight: 600; }
+
+.mobile-lang {
+  display: flex;
+  gap: 22px;
+  margin-top: 8px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.mobile-menu .mobile-lang a,
+.mobile-lang span {
+  font-family: var(--font-body);
+  font-size: 15px;
+  letter-spacing: 0.08em;
+}
+
+.mobile-menu .mobile-lang a { opacity: 0.55; }
+.mobile-lang span[aria-current] { font-weight: 600; }
+
+.notfound-page .notfound-alt {
+  font-size: 14px;
+  margin: 24px 0 0;
+  color: var(--text-muted);
+}
+
+.notfound-page .notfound-alt a { text-decoration: underline; }

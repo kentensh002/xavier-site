@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page introuvable — Xavier You</title>
   <meta name="description" content="Cette page n&#x27;existe pas.">
+  <meta name="robots" content="noindex">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Xavier You">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="Page introuvable — Xavier You">
   <meta property="og:description" content="Cette page n&#x27;existe pas.">
-  <meta property="og:url" content="https://xavieryou.com/404.html">
   <meta property="og:image" content="https://xavieryou.com/images/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -19,7 +19,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <meta name="robots" content="noindex">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -42,6 +41,11 @@
       </li>
       <li><a href="/a-propos.html">À PROPOS</a></li>
       <li><a href="/contact.html">CONTACT</a></li>
+      <li class="lang-switch">
+        <span aria-current="true">FR</span>
+        <a href="/en/" hreflang="en" lang="en" title="English">EN</a>
+        <a href="/it/" hreflang="it" lang="it" title="Italiano">IT</a>
+      </li>
     </ul>
     <button class="navbar-toggle" type="button" aria-label="Menu">
       <span></span>
@@ -60,6 +64,11 @@
     <a href="/serie-lianes.html">La chambre des lianes</a>
     <a href="/a-propos.html">À propos</a>
     <a href="/contact.html">Contact</a>
+    <div class="mobile-lang">
+      <span aria-current="true">FR</span>
+      <a href="/en/" hreflang="en" lang="en" title="English">EN</a>
+      <a href="/it/" hreflang="it" lang="it" title="Italiano">IT</a>
+    </div>
   </div>
 
   <main class="notfound-page">
@@ -67,6 +76,8 @@
     <h1>Page introuvable</h1>
     <p>La page que vous cherchez n'existe pas ou a été déplacée.</p>
     <a href="/index.html" class="btn">retour à l'accueil</a>
+    <p class="notfound-alt" lang="en">Page not found. <a href="/en/">Back to the home page</a></p>
+    <p class="notfound-alt" lang="it">Pagina non trovata. <a href="/it/">Torna alla home</a></p>
   </main>
 
   <!-- Footer -->

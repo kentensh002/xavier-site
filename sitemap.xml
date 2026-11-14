@@ -1,13 +1,213 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://xavieryou.com/</loc></url>
-  <url><loc>https://xavieryou.com/serie-nacre.html</loc></url>
-  <url><loc>https://xavieryou.com/serie-rouge.html</loc></url>
-  <url><loc>https://xavieryou.com/serie-isis.html</loc></url>
-  <url><loc>https://xavieryou.com/serie-pose.html</loc></url>
-  <url><loc>https://xavieryou.com/serie-nuit.html</loc></url>
-  <url><loc>https://xavieryou.com/serie-pink.html</loc></url>
-  <url><loc>https://xavieryou.com/serie-lianes.html</loc></url>
-  <url><loc>https://xavieryou.com/a-propos.html</loc></url>
-  <url><loc>https://xavieryou.com/contact.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://xavieryou.com/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/serie-nacre.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-nacre.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-nacre.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-nacre.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-nacre.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/serie-rouge.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-rouge.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-rouge.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-rouge.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-rouge.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/serie-isis.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-isis.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-isis.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-isis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-isis.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/serie-pose.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-pose.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-pose.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-pose.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-pose.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/serie-nuit.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-nuit.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-nuit.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-nuit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-nuit.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/serie-pink.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-pink.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-pink.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-pink.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-pink.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/serie-lianes.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-lianes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-lianes.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-lianes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-lianes.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/a-propos.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/a-propos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/chi-sono.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/a-propos.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/contatti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/contact.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/en/series-nacre.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-nacre.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-nacre.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-nacre.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-nacre.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/en/series-rouge.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-rouge.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-rouge.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-rouge.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-rouge.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/en/series-isis.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-isis.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-isis.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-isis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-isis.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/en/series-pose.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-pose.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-pose.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-pose.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-pose.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/en/series-nuit.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-nuit.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-nuit.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-nuit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-nuit.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/en/series-pink.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-pink.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-pink.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-pink.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-pink.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/en/series-lianes.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-lianes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-lianes.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-lianes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-lianes.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/a-propos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/chi-sono.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/a-propos.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/en/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/contatti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/contact.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/it/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/it/serie-nacre.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-nacre.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-nacre.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-nacre.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-nacre.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/it/serie-rouge.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-rouge.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-rouge.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-rouge.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-rouge.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/it/serie-isis.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-isis.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-isis.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-isis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-isis.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/it/serie-pose.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-pose.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-pose.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-pose.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-pose.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/it/serie-nuit.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-nuit.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-nuit.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-nuit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-nuit.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/it/serie-pink.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-pink.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-pink.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-pink.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-pink.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/it/serie-lianes.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-lianes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-lianes.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-lianes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-lianes.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/it/chi-sono.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/a-propos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/chi-sono.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/a-propos.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/it/contatti.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/contatti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/contact.html"/>
+  </url>
 </urlset>

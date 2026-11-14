@@ -72,12 +72,19 @@ document.addEventListener('DOMContentLoaded', () => {
     box.hidden = true;
     box.setAttribute('role', 'dialog');
     box.setAttribute('aria-modal', 'true');
-    box.setAttribute('aria-label', 'Visionneuse photo');
+    // textes de la visionneuse selon la langue de la page (<html lang>)
+    const LABELS = {
+      fr: { viewer: 'Visionneuse photo', close: 'Fermer', prev: 'Photo précédente', next: 'Photo suivante' },
+      en: { viewer: 'Photo viewer', close: 'Close', prev: 'Previous photo', next: 'Next photo' },
+      it: { viewer: 'Visualizzatore foto', close: 'Chiudi', prev: 'Foto precedente', next: 'Foto successiva' }
+    };
+    const L = LABELS[(document.documentElement.lang || 'fr').slice(0, 2)] || LABELS.fr;
+    box.setAttribute('aria-label', L.viewer);
     box.innerHTML =
-      '<button class="lb-btn lb-close" type="button" aria-label="Fermer">&times;</button>' +
-      '<button class="lb-btn lb-prev" type="button" aria-label="Photo précédente">&#8249;</button>' +
+      '<button class="lb-btn lb-close" type="button" aria-label="' + L.close + '">&times;</button>' +
+      '<button class="lb-btn lb-prev" type="button" aria-label="' + L.prev + '">&#8249;</button>' +
       '<figure class="lb-stage"><img alt=""><figcaption class="lb-caption"></figcaption></figure>' +
-      '<button class="lb-btn lb-next" type="button" aria-label="Photo suivante">&#8250;</button>';
+      '<button class="lb-btn lb-next" type="button" aria-label="' + L.next + '">&#8250;</button>';
     document.body.appendChild(box);
 
     const img = box.querySelector('img');
@@ -161,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Active nav link ---
   const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
   document.querySelectorAll('.navbar-links a, .mobile-menu a').forEach(link => {
+    if (link.hasAttribute('hreflang')) return; // sélecteur de langue
     const href = link.getAttribute('href').replace(/\/$/, '') || '/';
     const linkPath = href.startsWith('/') ? href : '/' + href;
     if (linkPath === currentPath || (currentPath.endsWith(href) && href !== '/')) {
