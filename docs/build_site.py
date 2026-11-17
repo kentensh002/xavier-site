@@ -38,6 +38,8 @@ SERIES = [
          rows=[[0], [1, 2, 3]], cover=0, cover_pos="42% 50%", q=68),
 ]
 
+OG_FILE = "og-logo.jpg"   # image de partage
+OG_POS_X, OG_POS_Y = 1.0, 0.5   # position du recadrage de la photo dans l'image de partage (0 = gauche/haut, 1 = droite/bas)
 HERO = ("pose", 3)           # portrait noir et blanc
 HERO_POS = "100% 50%"
 CONTACT_PHOTO = ("pose", 2)  # photo à droite sur la page Contact
@@ -82,16 +84,22 @@ for s in SERIES:
         IMG[(s["slug"], i)] = dict(sizes=info, ratio=info[1400][0] / info[1400][1])
         print(s["slug"], i + 1, name, im.size, "->", info[1400], f"{os.path.getsize(os.path.join(outdir, f'{i+1:02d}-2400.webp'))//1024} Ko (2400)")
 
-# image de partage (WhatsApp, etc.) 1200x630 : portrait noir et blanc recadré
+# image de partage (WhatsApp, etc.) 1200x630 : portrait noir et blanc à gauche, logo de Xavier sur fond crème à droite
+# (panneau logo = docs/logo/og-panel.png, 600x630 ; nom du fichier versionné pour contourner le cache de WhatsApp)
 hs, hi = HERO
 hp = os.path.join(SRC, [x for x in SERIES if x["slug"] == hs][0]["folder"], [x for x in SERIES if x["slug"] == hs][0]["files"][hi] + ".jpeg")
 im = to_srgb(ImageOps.exif_transpose(Image.open(hp)))
 w, h = im.size
-k = 1200 / w
-im = im.resize((1200, round(h * k)), Image.LANCZOS)
-top = max(0, min(im.height - 630, int(im.height * 0.33) - 315))
-im.crop((0, top, 1200, top + 630)).save(os.path.join(SITE, "images", "og.jpg"), "JPEG", quality=84, optimize=True, progressive=True)
-print("og.jpg", os.path.getsize(os.path.join(SITE, "images", "og.jpg")) // 1024, "Ko")
+k = max(600 / w, 630 / h)   # la photo remplit toute la moitié gauche (600x630)
+im = im.resize((round(w * k), round(h * k)), Image.LANCZOS)
+left = int((im.width - 600) * OG_POS_X)
+top = int((im.height - 630) * OG_POS_Y)
+og = Image.new("RGB", (1200, 630), (244, 241, 232))
+og.paste(im.crop((left, top, left + 600, top + 630)), (0, 0))
+panel = os.path.join(SITE, "docs", "logo", "og-panel.png")
+og.paste(Image.open(panel).convert("RGB"), (600, 0))
+og.save(os.path.join(SITE, "images", OG_FILE), "JPEG", quality=86, optimize=True, progressive=True)
+print(OG_FILE, os.path.getsize(os.path.join(SITE, "images", OG_FILE)) // 1024, "Ko")
 
 
 # ---------- 2. langues ----------
@@ -311,7 +319,7 @@ def head(title, desc, kind, slug=None, og_title=None, indexable=True):
   <meta property="og:locale" content="{CUR['locale']}">
 {og_alt}  <meta property="og:title" content="{esc(ogt)}">
   <meta property="og:description" content="{esc(desc)}">
-{og_url}  <meta property="og:image" content="{BASE_URL}/images/og.jpg">
+{og_url}  <meta property="og:image" content="{BASE_URL}/images/{OG_FILE}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
