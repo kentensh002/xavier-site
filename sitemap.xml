@@ -8,6 +8,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/"/>
   </url>
   <url>
+    <loc>https://xavieryou.com/serie-soir.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-soir.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-soir.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-soir.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-soir.html"/>
+  </url>
+  <url>
     <loc>https://xavieryou.com/serie-nacre.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-nacre.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-nacre.html"/>
@@ -78,6 +85,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/"/>
   </url>
   <url>
+    <loc>https://xavieryou.com/en/series-soir.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-soir.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-soir.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-soir.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-soir.html"/>
+  </url>
+  <url>
     <loc>https://xavieryou.com/en/series-nacre.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-nacre.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-nacre.html"/>
@@ -146,6 +160,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/it/serie-soir.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-soir.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-soir.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-soir.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-soir.html"/>
   </url>
   <url>
     <loc>https://xavieryou.com/it/serie-nacre.html</loc>

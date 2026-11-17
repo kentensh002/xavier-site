@@ -11,6 +11,8 @@
   <link rel="alternate" hreflang="it" href="https://xavieryou.com/it/chi-sono.html">
   <link rel="alternate" hreflang="x-default" href="https://xavieryou.com/a-propos.html">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" sizes="96x96" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Xavier You">
   <meta property="og:locale" content="fr_FR">
@@ -32,11 +34,12 @@
 
   <!-- Navbar -->
   <nav class="navbar">
-    <a href="index.html" class="navbar-brand">XAVIER YOU</a>
+    <a href="index.html" class="navbar-brand" aria-label="Xavier You, accueil"><img src="images/logo-xy.svg" alt="Xavier You" width="605" height="324"></a>
     <ul class="navbar-links">
       <li class="dropdown">
         <button class="dropdown-toggle" type="button">PORTFOLIO</button>
         <div class="dropdown-menu">
+          <a href="serie-soir.html">Un soir entre amis</a>
           <a href="serie-nacre.html">À fleur de nacre</a>
           <a href="serie-rouge.html">Sous le rouge, à dessein</a>
           <a href="serie-isis.html">Isis à demi dévoilée</a>
@@ -62,6 +65,7 @@
   </nav>
 
   <div class="mobile-menu">
+    <a href="serie-soir.html">Un soir entre amis</a>
     <a href="serie-nacre.html">À fleur de nacre</a>
     <a href="serie-rouge.html">Sous le rouge, à dessein</a>
     <a href="serie-isis.html">Isis à demi dévoilée</a>
@@ -111,6 +115,13 @@
 
   <div class="cards-section">
     <div class="cards-grid">
+      <a href="serie-soir.html" class="card">
+        <img src="images/soir/02-1400.webp" srcset="images/soir/02-800.webp 533w, images/soir/02-1400.webp 933w, images/soir/02-2400.webp 1600w" sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 25vw" width="933" height="1400" alt="Un soir entre amis, Cannes, 2018" loading="lazy" decoding="async" class="card-image" style="object-position:50% 28%">
+        <div class="card-content">
+          <h2>Un soir entre amis</h2>
+          <p>Cannes, 2018</p>
+        </div>
+      </a>
       <a href="serie-nacre.html" class="card">
         <img src="images/nacre/05-1400.webp" srcset="images/nacre/05-800.webp 533w, images/nacre/05-1400.webp 933w, images/nacre/05-2400.webp 1600w" sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 25vw" width="933" height="1400" alt="À fleur de nacre, Cannes, 2019" loading="lazy" decoding="async" class="card-image" style="object-position:50% 50%">
         <div class="card-content">
@@ -169,12 +180,14 @@
   <footer class="footer">
     <div class="footer-wrapper">
       <div class="footer-col">
-        <p class="footer-description">Xavier You, photographe auteur. France · Italie · Suisse.</p>
+        <a href="index.html" class="footer-logo-link"><img class="footer-logo" src="images/logo.svg" alt="Xavier You, photographe auteur" width="605" height="580" loading="lazy"></a>
+        <p class="footer-description">France · Italie · Suisse.</p>
         <a href="mailto:contact@xavieryou.com" class="footer-contact-link">contact@xavieryou.com</a>
         <a href="https://www.instagram.com/xavieryou_officiel/" class="footer-contact-link" target="_blank" rel="noopener">Instagram</a>
       </div>
       <div class="footer-col">
         <ul class="footer-nav">
+          <li><a href="serie-soir.html">Un soir entre amis</a></li>
           <li><a href="serie-nacre.html">À fleur de nacre</a></li>
           <li><a href="serie-rouge.html">Sous le rouge, à dessein</a></li>
           <li><a href="serie-isis.html">Isis à demi dévoilée</a></li>

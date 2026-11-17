@@ -10,6 +10,9 @@ SIZES = [800, 1400, 2400]  # grand côté, en px
 
 # ordre = ordre voulu dans la galerie ; rows = rangées (indices)
 SERIES = [
+    dict(slug="soir", title="Un soir entre amis", place="Cannes", year=2018, folder="new_serie7",
+         files=["IMG_0010", "IMG_9924"],
+         rows=[[0, 1]], cover=1, cover_pos="50% 28%"),
     dict(slug="nacre", title="À fleur de nacre", place="Cannes", year=2019, folder="uneautresriemettreaussi",
          files=["HY3Q9132", "HY3Q9164", "HY3Q9165", "HY3Q9169", "HY3Q9173"],
          rows=[[0, 1], [2, 3, 4]], cover=4, cover_pos="50% 50%"),
@@ -125,7 +128,8 @@ T = {
         about_teaser="La peinture, la poésie et la musique nourrissent son regard. Sa photographie accueille aussi bien la sensualité et la mise en scène que le silence et la contemplation.",
         about_btn="lire la présentation",
         track="portrait · mode · abstraction · noir et blanc · couleur · argentique",
-        footer_desc="Xavier You, photographe auteur. France · Italie · Suisse.",
+        footer_desc="France · Italie · Suisse.",
+        home_label="Xavier You, accueil", logo_alt="Xavier You, photographe auteur",
         copyright="© Xavier You — Tous droits réservés",
         footer_about="À propos", footer_contact="Contact",
         kicker="Série {i} / {n}", other_series="Autres séries",
@@ -161,7 +165,8 @@ T = {
         about_teaser="Painting, poetry and music nourish his gaze. His photography welcomes sensuality and staging as readily as silence and contemplation.",
         about_btn="read more",
         track="portrait · fashion · abstraction · black and white · colour · analogue film",
-        footer_desc="Xavier You, fine-art photographer. France · Italy · Switzerland.",
+        footer_desc="France · Italy · Switzerland.",
+        home_label="Xavier You, home", logo_alt="Xavier You, fine-art photographer",
         copyright="© Xavier You — All rights reserved",
         footer_about="About", footer_contact="Contact",
         kicker="Series {i} / {n}", other_series="Other series",
@@ -197,7 +202,8 @@ T = {
         about_teaser="La pittura, la poesia e la musica nutrono il suo sguardo. La sua fotografia accoglie tanto la sensualità e la messa in scena quanto il silenzio e la contemplazione.",
         about_btn="leggi la presentazione",
         track="ritratto · moda · astrazione · bianco e nero · colore · pellicola",
-        footer_desc="Xavier You, fotografo d'autore. Francia · Italia · Svizzera.",
+        footer_desc="Francia · Italia · Svizzera.",
+        home_label="Xavier You, home", logo_alt="Xavier You, fotografo d'autore",
         copyright="© Xavier You — Tutti i diritti riservati",
         footer_about="Chi sono", footer_contact="Contatti",
         kicker="Serie {i} / {n}", other_series="Altre serie",
@@ -298,6 +304,8 @@ def head(title, desc, kind, slug=None, og_title=None, indexable=True):
   <title>{esc(title)}</title>
   <meta name="description" content="{esc(desc)}">
 {seo}  <link rel="icon" href="{p}favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="{p}favicon.png" sizes="96x96" type="image/png">
+  <link rel="apple-touch-icon" href="{p}apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Xavier You">
   <meta property="og:locale" content="{CUR['locale']}">
@@ -336,7 +344,7 @@ def nav(kind="index", slug=None):
     return f"""
   <!-- Navbar -->
   <nav class="navbar">
-    <a href="index.html" class="navbar-brand">XAVIER YOU</a>
+    <a href="index.html" class="navbar-brand" aria-label="{tr('home_label')}"><img src="{CUR['prefix']}images/logo-xy.svg" alt="Xavier You" width="605" height="324"></a>
     <ul class="navbar-links">
       <li class="dropdown">
         <button class="dropdown-toggle" type="button">PORTFOLIO</button>
@@ -376,6 +384,7 @@ def footer():
   <footer class="footer">
     <div class="footer-wrapper">
       <div class="footer-col">
+        <a href="index.html" class="footer-logo-link"><img class="footer-logo" src="{CUR['prefix']}images/logo.svg" alt="{esc(tr('logo_alt'))}" width="605" height="580" loading="lazy"></a>
         <p class="footer-description">{tr('footer_desc')}</p>
         <a href="mailto:contact@xavieryou.com" class="footer-contact-link">contact@xavieryou.com</a>
         <a href="https://www.instagram.com/xavieryou_officiel/" class="footer-contact-link" target="_blank" rel="noopener">Instagram</a>
@@ -459,13 +468,14 @@ def series_cards_block():
 def absolutize(h):
     """chemins absolus (la page 404 peut s'afficher à n'importe quelle adresse)"""
     h = re.sub(r'href="(?!mailto:|https?:|/)', 'href="/', h)
-    return h.replace('src="js/', 'src="/js/')
+    h = h.replace('src="js/', 'src="/js/').replace('src="images/', 'src="/images/')
+    return h
 
 
 def build_404():
     page = head("Page introuvable — Xavier You", "Cette page n'existe pas.", "index", indexable=False)
     page = page.replace('<link rel="stylesheet" href="css/style.css">', '<link rel="stylesheet" href="/css/style.css">')
-    page = page.replace('<link rel="icon" href="favicon.svg"', '<link rel="icon" href="/favicon.svg"')
+    page = page.replace('href="favicon', 'href="/favicon').replace('href="apple-touch', 'href="/apple-touch')
     page += absolutize(nav("index"))
     page += """
   <main class="notfound-page">
@@ -679,8 +689,4 @@ CUR = LANGS["fr"]
 build_404()
 build_seo()
 
-with open(os.path.join(SITE, "favicon.svg"), "w", encoding="utf-8", newline="\n") as f:
-    f.write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#303030"/>'
-            '<text x="32" y="43" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" '
-            'text-anchor="middle" fill="#fdfcfa">XY</text></svg>\n')
 print("OK")

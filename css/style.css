@@ -1233,3 +1233,45 @@ h1, h2, h3 {
 }
 
 .notfound-page .notfound-alt a { text-decoration: underline; }
+
+/* ============================================
+   LOGO (monogramme XY dans la barre, logo complet en pied de page)
+   ============================================ */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  display: block;
+  height: 30px;
+  width: auto;
+}
+
+.footer-logo-link { display: inline-block; }
+
+.footer-logo {
+  display: block;
+  width: 140px;
+  height: auto;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 768px) {
+  .navbar-brand img { height: 26px; }
+}
+
+/* menu mobile : 8 séries + pages + langues, défilement si l'écran est petit */
+.mobile-menu {
+  justify-content: flex-start;
+  overflow-y: auto;
+  padding: 90px 0 40px;
+}
+
+.mobile-menu > :first-child { margin-top: auto; }
+.mobile-menu > :last-child { margin-bottom: auto; }
+
+@media (max-height: 720px) {
+  .mobile-menu { gap: 18px; }
+  .mobile-menu a { font-size: 20px; }
+}
