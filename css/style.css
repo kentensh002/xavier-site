@@ -1275,3 +1275,21 @@ h1, h2, h3 {
   .mobile-menu { gap: 18px; }
   .mobile-menu a { font-size: 20px; }
 }
+
+/* ============================================
+   INSTAGRAM (icône dans la barre, lien dans le menu mobile)
+   ============================================ */
+.navbar-links .nav-social a {
+  display: flex;
+  align-items: center;
+}
+
+.nav-social svg { display: block; }
+
+.mobile-menu .mobile-insta {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}

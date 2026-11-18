@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Active nav link ---
   const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
   document.querySelectorAll('.navbar-links a, .mobile-menu a').forEach(link => {
-    if (link.hasAttribute('hreflang')) return; // sélecteur de langue
+    if (link.hasAttribute('hreflang') || link.target === '_blank') return; // sélecteur de langue, lien externe (Instagram)
     const href = link.getAttribute('href').replace(/\/$/, '') || '/';
     const linkPath = href.startsWith('/') ? href : '/' + href;
     if (linkPath === currentPath || (currentPath.endsWith(href) && href !== '/')) {

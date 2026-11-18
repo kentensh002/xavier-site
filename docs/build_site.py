@@ -38,6 +38,10 @@ SERIES = [
          rows=[[0], [1, 2, 3]], cover=0, cover_pos="42% 50%", q=68),
 ]
 
+IG_URL = "https://www.instagram.com/xavieryou_officiel/"
+IG_ICON = ('<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">'
+           '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/>'
+           '<circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>')
 OG_FILE = "og-logo.jpg"   # image de partage
 OG_POS_X, OG_POS_Y = 1.0, 0.5   # position du recadrage de la photo dans l'image de partage (0 = gauche/haut, 1 = droite/bas)
 HERO = ("pose", 3)           # portrait noir et blanc
@@ -362,6 +366,7 @@ def nav(kind="index", slug=None):
       </li>
       <li><a href="{about}">{tr('nav_about')}</a></li>
       <li><a href="{contact}">{tr('nav_contact')}</a></li>
+      <li class="nav-social"><a href="{IG_URL}" target="_blank" rel="noopener" aria-label="Instagram @xavieryou_officiel" title="Instagram @xavieryou_officiel">{IG_ICON}</a></li>
       <li class="lang-switch">
 {sw_desk}
       </li>
@@ -377,6 +382,7 @@ def nav(kind="index", slug=None):
 {mob}
     <a href="{about}">{tr('mob_about')}</a>
     <a href="{contact}">{tr('mob_contact')}</a>
+    <a href="{IG_URL}" class="mobile-insta" target="_blank" rel="noopener">Instagram @xavieryou_officiel</a>
     <div class="mobile-lang">
 {sw_mob}
     </div>
@@ -395,7 +401,7 @@ def footer():
         <a href="index.html" class="footer-logo-link"><img class="footer-logo" src="{CUR['prefix']}images/logo.svg" alt="{esc(tr('logo_alt'))}" width="605" height="580" loading="lazy"></a>
         <p class="footer-description">{tr('footer_desc')}</p>
         <a href="mailto:contact@xavieryou.com" class="footer-contact-link">contact@xavieryou.com</a>
-        <a href="https://www.instagram.com/xavieryou_officiel/" class="footer-contact-link" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.instagram.com/xavieryou_officiel/" class="footer-contact-link" target="_blank" rel="noopener">Instagram @xavieryou_officiel</a>
       </div>
       <div class="footer-col">
         <ul class="footer-nav">
@@ -663,7 +669,7 @@ def build_contact():
 
         <div class="contact-details">
           <a href="mailto:contact@xavieryou.com">contact@xavieryou.com</a>
-          <a href="https://www.instagram.com/xavieryou_officiel/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.instagram.com/xavieryou_officiel/" target="_blank" rel="noopener">Instagram @xavieryou_officiel</a>
         </div>
 
         <div class="contact-links-col">
