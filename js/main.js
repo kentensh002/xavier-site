@@ -64,6 +64,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Protection des photos : pas de clic droit, de glisser-déposer ni d'appui long « Enregistrer l'image » ---
+  // (dissuade l'enregistrement courant ; une capture d'écran ou les outils de développement restent possibles)
+  const guarded = 'img, .g-item, .card, .hero-image-col, .contact-photo-col, .lightbox';
+  document.addEventListener('contextmenu', (e) => {
+    if (e.target.closest && e.target.closest(guarded)) e.preventDefault();
+  });
+  document.addEventListener('dragstart', (e) => {
+    if (e.target.tagName === 'IMG') e.preventDefault();
+  });
+
   // --- Visionneuse (clic sur une photo d'une série) ---
   const items = Array.from(document.querySelectorAll('[data-lb]'));
   if (items.length) {
@@ -93,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnPrev = box.querySelector('.lb-prev');
     const btnNext = box.querySelector('.lb-next');
     const buttons = [btnClose, btnPrev, btnNext];
+    const full = (el) => el.dataset.full || el.href;   // adresse de la photo en grand format
     const n = items.length;
     let idx = 0;
     let lastFocus = null;
@@ -110,10 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
       caption.textContent = a.dataset.caption || '';
       const big = new Image();
       big.onload = () => { if (items[idx] === a) img.src = big.src; };
-      big.src = a.href;
+      big.src = full(a);
       if (n > 1) {
-        new Image().src = items[(idx + 1) % n].href;
-        new Image().src = items[(idx - 1 + n) % n].href;
+        new Image().src = full(items[(idx + 1) % n]);
+        new Image().src = full(items[(idx - 1 + n) % n]);
       }
     };
 

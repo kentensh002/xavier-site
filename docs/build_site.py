@@ -1,21 +1,28 @@
 """Génère images optimisées + pages HTML du site photographe (sortie : HTML statique).
 Usage : python -I build_site.py <dossier_extraction> <dossier_site>
+
+- Photos sources : <dossier_extraction>/<dossier>/<nom>.jpeg ; une entrée de `files` peut s'écrire "dossier/nom" pour
+  piocher dans un autre dossier que celui de la série.
+- docs/images-manifest.json garde l'empreinte (md5) de chaque photo source : une image n'est régénérée que si sa source a
+  changé ou n'existe pas encore. Si la source est absente, l'image déjà générée est conservée telle quelle.
+- XS_BOOTSTRAP=1 : à la toute première utilisation du manifeste, considère les images existantes comme à jour.
+- Rangées de la galerie : `rows` (listes d'indices) ou `pattern` (nombre de photos par rangée, dans l'ordre).
 """
-import sys, os, re, html
+import sys, os, re, html, json, hashlib
 from PIL import Image, ImageOps, ImageCms
 
 SRC, SITE = sys.argv[1], sys.argv[2]
 BASE_URL = "https://xavieryou.com"
 SIZES = [800, 1400, 2400]  # grand côté, en px
 
-# ordre = ordre voulu dans la galerie ; rows = rangées (indices)
+# ordre = ordre voulu (chronologique) ; cover = photo de la carte d'accueil ; q = qualité WebP (68 pour les scans argentiques)
 SERIES = [
     dict(slug="soir", title="Un soir entre amis", place="Cannes", year=2018, folder="new_serie7",
-         files=["IMG_0010", "IMG_9924"],
-         rows=[[0, 1]], cover=1, cover_pos="50% 28%"),
+         files=["IMG_0010", "IMG_9924", "ajouterunsoirentreamis/IMG_4654", "ajouterunsoirentreamis/IMG_4655"],
+         rows=[[0, 1], [2, 3]], cover=1, cover_pos="50% 28%"),
     dict(slug="nacre", title="À fleur de nacre", place="Cannes", year=2019, folder="uneautresriemettreaussi",
-         files=["HY3Q9132", "HY3Q9164", "HY3Q9165", "HY3Q9169", "HY3Q9173"],
-         rows=[[0, 1], [2, 3, 4]], cover=4, cover_pos="50% 50%"),
+         files=["HY3Q9132", "HY3Q9164", "HY3Q9165", "HY3Q9169", "HY3Q9173", "extras/IMG_6676"],
+         rows=[[0, 1], [2, 3], [4, 5]], cover=4, cover_pos="50% 50%"),
     dict(slug="rouge", title="Sous le rouge, à dessein", place="Cannes", year=2019, folder="new_serie41",
          files=["HY3Q9282", "HY3Q9287", "HY3Q9298"],
          rows=[[0, 1, 2]], cover=2, cover_pos="50% 40%"),
@@ -23,20 +30,46 @@ SERIES = [
          files=["HY3Q9019", "HY3Q9020", "IMG_0900"],
          rows=[[0, 1, 2]], cover=1, cover_pos="50% 50%"),
     dict(slug="pose", title="Le temps d’une pose", place="Paris", year=2021, folder="photosmettresurlesitexavieryou",
-         files=["11980007", "11970032", "11980020", "12360031"],
-         rows=[[0, 1], [2, 3]], cover=1, cover_pos="50% 50%", q=68),
+         files=["11980007", "11970032", "11980020", "12360031",
+                "aajouterlasrieletempsdunepose/11980008", "aajouterlasrieletempsdunepose/12360023",
+                "aajouterlasrieletempsdunepose/12360025", "aajouterlasrieletempsdunepose/12360028",
+                "aajouterlasrieletempsdunepose/12360029", "aajouterlasrieletempsdunepose/12360034"],
+         rows=[[0, 1], [2, 3], [4, 5], [6, 7], [8, 9]], cover=1, cover_pos="50% 50%", q=68),
     dict(slug="nuit", title="La nuit lui appartient", place="Montpellier", year=2021, folder="autresrie",
-         files=["HY3Q9671", "HY3Q9672", "HY3Q9675"],
-         rows=[[0], [1, 2]], cover=1, cover_pos="50% 50%"),
-    dict(slug="pink", title="Pink Flow", place="Festival de Cannes", year=2021, folder="new_serie5",
-         files=["0cafc4bc-526a-4b75-bdb6-4df890ac96b3", "4a7f9b76-c35f-4eaf-a804-01b44d404550",
-                "c8f01fc4-e7b0-43a8-a73a-c0b8a9b6619b"],
-         rows=[[0], [1, 2]], cover=1, cover_pos="50% 40%"),
+         files=["HY3Q9671", "HY3Q9672", "HY3Q9675", "extras/IMG_5098"],
+         rows=[[0], [1, 2, 3]], cover=1, cover_pos="50% 50%"),
+    dict(slug="pink", title="Pink Flow", place="Festival de Cannes", year=2021, folder="pinkflow",
+         files=["IMG_4650", "IMG_6312", "IMG_6314"],
+         rows=[[0], [1, 2]], cover=1, cover_pos="50% 25%"),
+    dict(slug="figures", title="Figures sur fond noir", place="Genève", year=2021, folder="nouvellessrie",
+         files=["IMG_6361", "IMG_6362", "IMG_6370", "IMG_6360",
+                "mathildeshooting/5b450a11-1ce4-46b2-9f17-897a9f0462dd",
+                "mathildeshooting/5fdb2f37-9c94-4e14-a819-0c0048ee6b4c",
+                "mathildeshooting/99d55800-977a-4802-ae30-f97c8f056937"],
+         rows=[[0, 1], [2, 3], [4, 5, 6]], cover=1, cover_pos="50% 50%"),
+    dict(slug="heures", title="Les heures sans rendez-vous", place="Concarneau", year=2021, folder="concarneau",
+         files=["concarneausuite3/12350015", "concarneausuite1/12350018", "concarneau/12350019", "concarneausuite3/12350020",
+                "concarneausuite1/12350021", "concarneausuite3/12350022", "concarneausuite2/12350023", "concarneausuite1/12350024",
+                "concarneausuite1/12360001", "concarneausuite1/12360002", "concarneausuite1/12360004", "concarneausuite2/12360005",
+                "concarneausuite2/12360007", "concarneau/12360008", "concarneausuite2/12360009", "concarneau/12360013",
+                "concarneau/12360015", "concarneau/12360016", "concarneausuite2/12360018", "concarneausuite1/12360019",
+                "concarneau/12360020"],
+         pattern=[3, 2, 3, 2, 3, 2, 3, 2, 1], cover=15, cover_pos="62% 50%", q=68),
     dict(slug="lianes", title="La chambre des lianes", place="Cannes", year=2022, folder="serie4",
          files=["IMG_6958", "3EA3002F-985C-4B55-8003-1A559231FF43",
                 "4DFF6CA7-C472-48E4-978F-4B5217E8804D", "78599995-7E84-43E0-BB59-736A15728337"],
          rows=[[0], [1, 2, 3]], cover=0, cover_pos="42% 50%", q=68),
+    dict(slug="snow", title="Snow Queen", place="Verbier", year=2023, folder="nouvellesrie",
+         files=["554A9367", "554A9368", "554A9396", "554A9402", "554A9542", "554A9553"],
+         rows=[[0, 1], [2, 3], [4, 5]], cover=1, cover_pos="60% 30%"),
 ]
+for s in SERIES:
+    if "pattern" in s:
+        rows, i = [], 0
+        for n in s["pattern"]:
+            rows.append(list(range(i, i + n))); i += n
+        s["rows"] = rows
+    assert sorted(sum(s["rows"], [])) == list(range(len(s["files"]))), f"rangées incomplètes : {s['slug']}"
 
 IG_URL = "https://www.instagram.com/xavieryou_officiel/"
 IG_ICON = ('<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">'
@@ -64,46 +97,96 @@ def to_srgb(im):
     return im.convert("RGB")
 
 
+def src_path(s, entry):
+    """chemin de la photo source ('nom' dans le dossier de la série, ou 'dossier/nom') ; None si absente"""
+    folder, name = entry.split("/", 1) if "/" in entry else (s["folder"], entry)
+    for ext in (".jpeg", ".jpg", ".JPEG", ".JPG", ".png"):
+        p = os.path.join(SRC, folder, name + ext)
+        if os.path.exists(p):
+            return p
+    return None
+
+
+def md5_of(p):
+    h = hashlib.md5()
+    with open(p, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
 # ---------- 1. images ----------
+MANIFEST_PATH = os.path.join(SITE, "docs", "images-manifest.json")
+MANI = json.load(open(MANIFEST_PATH, encoding="utf-8")) if os.path.exists(MANIFEST_PATH) else {}
+BOOTSTRAP = bool(os.environ.get("XS_BOOTSTRAP"))
+NEW_MANI = {}
 IMG = {}  # (slug, idx) -> {'sizes': {L: (w,h)}, 'ratio': r}
 for s in SERIES:
     outdir = os.path.join(SITE, "images", s["slug"])
     os.makedirs(outdir, exist_ok=True)
-    for i, name in enumerate(s["files"]):
-        path = os.path.join(SRC, s["folder"], name + ".jpeg")
-        im = ImageOps.exif_transpose(Image.open(path))
-        im = to_srgb(im)           # aucune métadonnée EXIF / GPS n'est recopiée
-        w0, h0 = im.size
-        info = {}
-        for L in SIZES:
-            k = min(1.0, L / max(w0, h0))
-            w, h = round(w0 * k), round(h0 * k)
-            out = os.path.join(outdir, f"{i+1:02d}-{L}.webp")
-            if os.environ.get("XS_SKIP_IMAGES") and os.path.exists(out):
-                w, h = Image.open(out).size
-            else:
+    for f in os.listdir(outdir):          # série raccourcie : retire les images en trop
+        m = re.match(r"(\d+)-\d+\.webp$", f)
+        if m and int(m.group(1)) > len(s["files"]):
+            os.remove(os.path.join(outdir, f)); print("supprimée (en trop) :", s["slug"], f)
+    for i, entry in enumerate(s["files"]):
+        key = f"{s['slug']}/{i+1:02d}"
+        outs = {L: os.path.join(outdir, f"{i+1:02d}-{L}.webp") for L in SIZES}
+        have = all(os.path.exists(p) for p in outs.values())
+        path = src_path(s, entry)
+        md5 = md5_of(path) if path else None
+        fresh = have and ((md5 is None and key in MANI) or
+                          (md5 is not None and (MANI.get(key) == md5 or (BOOTSTRAP and key not in MANI))))
+        if fresh:
+            info = {}
+            for L in SIZES:
+                with Image.open(outs[L]) as t:
+                    info[L] = t.size
+            NEW_MANI[key] = md5 or MANI[key]
+            status = "à jour"
+        else:
+            if path is None:
+                raise SystemExit(f"Photo source introuvable pour {key} ({entry}) dans {SRC}")
+            im = to_srgb(ImageOps.exif_transpose(Image.open(path)))   # aucune métadonnée EXIF / GPS n'est recopiée
+            w0, h0 = im.size
+            info = {}
+            for L in SIZES:
+                k = min(1.0, L / max(w0, h0))
+                w, h = round(w0 * k), round(h0 * k)
                 r = im if k == 1.0 else im.resize((w, h), Image.LANCZOS)
-                r.save(out, "WEBP", quality=s.get("q", 80), method=6)
-            info[L] = (w, h)
+                r.save(outs[L], "WEBP", quality=s.get("q", 80), method=6)
+                info[L] = (w, h)
+            NEW_MANI[key] = md5
+            status = "GENEREE"
         IMG[(s["slug"], i)] = dict(sizes=info, ratio=info[1400][0] / info[1400][1])
-        print(s["slug"], i + 1, name, im.size, "->", info[1400], f"{os.path.getsize(os.path.join(outdir, f'{i+1:02d}-2400.webp'))//1024} Ko (2400)")
+        print(f"{key:12} {entry[:46]:46} {status:8} {info[1400][0]}x{info[1400][1]}  2400: {os.path.getsize(outs[2400])//1024} Ko")
+os.makedirs(os.path.dirname(MANIFEST_PATH), exist_ok=True)
+with open(MANIFEST_PATH, "w", encoding="utf-8", newline="\n") as f:
+    json.dump(NEW_MANI, f, indent=1, sort_keys=True)
+    f.write("\n")
 
 # image de partage (WhatsApp, etc.) 1200x630 : portrait noir et blanc à gauche, logo de Xavier sur fond crème à droite
 # (panneau logo = docs/logo/og-panel.png, 600x630 ; nom du fichier versionné pour contourner le cache de WhatsApp)
 hs, hi = HERO
-hp = os.path.join(SRC, [x for x in SERIES if x["slug"] == hs][0]["folder"], [x for x in SERIES if x["slug"] == hs][0]["files"][hi] + ".jpeg")
-im = to_srgb(ImageOps.exif_transpose(Image.open(hp)))
-w, h = im.size
-k = max(600 / w, 630 / h)   # la photo remplit toute la moitié gauche (600x630)
-im = im.resize((round(w * k), round(h * k)), Image.LANCZOS)
-left = int((im.width - 600) * OG_POS_X)
-top = int((im.height - 630) * OG_POS_Y)
-og = Image.new("RGB", (1200, 630), (244, 241, 232))
-og.paste(im.crop((left, top, left + 600, top + 630)), (0, 0))
+hero_series = next(x for x in SERIES if x["slug"] == hs)
+hp = src_path(hero_series, hero_series["files"][hi])
+og_out = os.path.join(SITE, "images", OG_FILE)
 panel = os.path.join(SITE, "docs", "logo", "og-panel.png")
-og.paste(Image.open(panel).convert("RGB"), (600, 0))
-og.save(os.path.join(SITE, "images", OG_FILE), "JPEG", quality=86, optimize=True, progressive=True)
-print(OG_FILE, os.path.getsize(os.path.join(SITE, "images", OG_FILE)) // 1024, "Ko")
+if hp and os.path.exists(panel):
+    im = to_srgb(ImageOps.exif_transpose(Image.open(hp)))
+    w, h = im.size
+    k = max(600 / w, 630 / h)   # la photo remplit toute la moitié gauche (600x630)
+    im = im.resize((round(w * k), round(h * k)), Image.LANCZOS)
+    left = int((im.width - 600) * OG_POS_X)
+    top = int((im.height - 630) * OG_POS_Y)
+    og = Image.new("RGB", (1200, 630), (244, 241, 232))
+    og.paste(im.crop((left, top, left + 600, top + 630)), (0, 0))
+    og.paste(Image.open(panel).convert("RGB"), (600, 0))
+    og.save(og_out, "JPEG", quality=86, optimize=True, progressive=True)
+    print(OG_FILE, os.path.getsize(og_out) // 1024, "Ko")
+elif os.path.exists(og_out):
+    print(OG_FILE, "conservée (photo source ou panneau logo absents)")
+else:
+    raise SystemExit("image de partage impossible à créer")
 
 
 # ---------- 2. langues ----------
@@ -122,9 +205,12 @@ SWITCH_LABEL = {"fr": "Français", "en": "English", "it": "Italiano"}
 
 # Les titres des séries restent en français dans toutes les langues (ce sont des titres d'œuvres).
 PLACES = {
-    "fr": {"Cannes": "Cannes", "Paris": "Paris", "Montpellier": "Montpellier", "Festival de Cannes": "Festival de Cannes"},
-    "en": {"Cannes": "Cannes", "Paris": "Paris", "Montpellier": "Montpellier", "Festival de Cannes": "Cannes Film Festival"},
-    "it": {"Cannes": "Cannes", "Paris": "Parigi", "Montpellier": "Montpellier", "Festival de Cannes": "Festival di Cannes"},
+    "fr": {"Cannes": "Cannes", "Paris": "Paris", "Montpellier": "Montpellier", "Festival de Cannes": "Festival de Cannes",
+           "Genève": "Genève", "Concarneau": "Concarneau", "Verbier": "Verbier"},
+    "en": {"Cannes": "Cannes", "Paris": "Paris", "Montpellier": "Montpellier", "Festival de Cannes": "Cannes Film Festival",
+           "Genève": "Geneva", "Concarneau": "Concarneau", "Verbier": "Verbier"},
+    "it": {"Cannes": "Cannes", "Paris": "Parigi", "Montpellier": "Montpellier", "Festival de Cannes": "Festival di Cannes",
+           "Genève": "Ginevra", "Concarneau": "Concarneau", "Verbier": "Verbier"},
 }
 
 T = {
@@ -425,7 +511,9 @@ def footer():
 
 
 def row_html(items, indent="    "):
-    """items : liste de (slug, idx, href, caption, alt, eager)"""
+    """items : liste de (slug, idx, url_plein_format, caption, alt, eager)
+    L'adresse de la photo en grand format est dans data-full (lue par la visionneuse) et non dans le lien :
+    le clic droit « Enregistrer le lien sous » ne donne donc pas le fichier."""
     tot = sum(IMG[(a[0], a[1])]["ratio"] for a in items)
     out = [f'{indent}<div class="g-row">']
     for slug, idx, href, caption, alt, eager in items:
@@ -433,7 +521,7 @@ def row_html(items, indent="    "):
         share = max(1, round(100 * r / tot))
         sizes = f"(max-width: 640px) 100vw, {share}vw"
         lb = f' data-lb data-caption="{esc(caption)}"' if caption else ""
-        out.append(f'{indent}  <a class="g-item" style="--r:{r:.4f}" href="{href}"{lb}>'
+        out.append(f'{indent}  <a class="g-item" id="photo-{idx+1}" style="--r:{r:.4f}" href="#photo-{idx+1}" data-full="{href}"{lb}>'
                    f'{img_tag(slug, idx, alt, sizes, eager)}</a>')
     out.append(f"{indent}</div>")
     return "\n".join(out)
