@@ -42,11 +42,8 @@ SERIES = [
          files=["IMG_4650", "IMG_6312", "IMG_6314"],
          rows=[[0], [1, 2]], cover=1, cover_pos="50% 25%"),
     dict(slug="figures", title="Figures sur fond noir", place="Genève", year=2021, folder="nouvellessrie",
-         files=["IMG_6361", "IMG_6362", "IMG_6370", "IMG_6360",
-                "mathildeshooting/5b450a11-1ce4-46b2-9f17-897a9f0462dd",
-                "mathildeshooting/5fdb2f37-9c94-4e14-a819-0c0048ee6b4c",
-                "mathildeshooting/99d55800-977a-4802-ae30-f97c8f056937"],
-         rows=[[0, 1], [2, 3], [4, 5, 6]], cover=1, cover_pos="50% 50%"),
+         files=["IMG_6361", "IMG_6362", "IMG_6370", "IMG_6360"],
+         rows=[[0, 1], [2, 3]], cover=1, cover_pos="50% 50%"),
     dict(slug="heures", title="Les heures sans rendez-vous", place="Concarneau", year=2021, folder="concarneau",
          files=["concarneausuite3/12350015", "concarneausuite1/12350018", "concarneau/12350019", "concarneausuite3/12350020",
                 "concarneausuite1/12350021", "concarneausuite3/12350022", "concarneausuite2/12350023", "concarneausuite1/12350024",
@@ -55,6 +52,10 @@ SERIES = [
                 "concarneau/12360015", "concarneau/12360016", "concarneausuite2/12360018", "concarneausuite1/12360019",
                 "concarneau/12360020"],
          pattern=[3, 2, 3, 2, 3, 2, 3, 2, 1], cover=15, cover_pos="62% 50%", q=68),
+    dict(slug="chapelle", title="Séjour dans une ancienne chapelle", place="Nantes", year=2021, folder="mathildeshooting",
+         files=["5b450a11-1ce4-46b2-9f17-897a9f0462dd", "5fdb2f37-9c94-4e14-a819-0c0048ee6b4c",
+                "99d55800-977a-4802-ae30-f97c8f056937"],   # 6 photos prévues par Xavier : 3 reçues (1024 px) à ce jour
+         rows=[[0, 1, 2]], cover=0, cover_pos="80% 50%"),
     dict(slug="lianes", title="La chambre des lianes", place="Cannes", year=2022, folder="serie4",
          files=["IMG_6958", "3EA3002F-985C-4B55-8003-1A559231FF43",
                 "4DFF6CA7-C472-48E4-978F-4B5217E8804D", "78599995-7E84-43E0-BB59-736A15728337"],
@@ -206,11 +207,11 @@ SWITCH_LABEL = {"fr": "Français", "en": "English", "it": "Italiano"}
 # Les titres des séries restent en français dans toutes les langues (ce sont des titres d'œuvres).
 PLACES = {
     "fr": {"Cannes": "Cannes", "Paris": "Paris", "Montpellier": "Montpellier", "Festival de Cannes": "Festival de Cannes",
-           "Genève": "Genève", "Concarneau": "Concarneau", "Verbier": "Verbier"},
+           "Genève": "Genève", "Concarneau": "Concarneau", "Verbier": "Verbier", "Nantes": "Nantes"},
     "en": {"Cannes": "Cannes", "Paris": "Paris", "Montpellier": "Montpellier", "Festival de Cannes": "Cannes Film Festival",
-           "Genève": "Geneva", "Concarneau": "Concarneau", "Verbier": "Verbier"},
+           "Genève": "Geneva", "Concarneau": "Concarneau", "Verbier": "Verbier", "Nantes": "Nantes"},
     "it": {"Cannes": "Cannes", "Paris": "Parigi", "Montpellier": "Montpellier", "Festival de Cannes": "Festival di Cannes",
-           "Genève": "Ginevra", "Concarneau": "Concarneau", "Verbier": "Verbier"},
+           "Genève": "Ginevra", "Concarneau": "Concarneau", "Verbier": "Verbier", "Nantes": "Nantes"},
 }
 
 T = {

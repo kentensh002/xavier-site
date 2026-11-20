@@ -71,6 +71,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-heures.html"/>
   </url>
   <url>
+    <loc>https://xavieryou.com/serie-chapelle.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-chapelle.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-chapelle.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-chapelle.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-chapelle.html"/>
+  </url>
+  <url>
     <loc>https://xavieryou.com/serie-lianes.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-lianes.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-lianes.html"/>
@@ -169,6 +176,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-heures.html"/>
   </url>
   <url>
+    <loc>https://xavieryou.com/en/series-chapelle.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-chapelle.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-chapelle.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-chapelle.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-chapelle.html"/>
+  </url>
+  <url>
     <loc>https://xavieryou.com/en/series-lianes.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-lianes.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-lianes.html"/>
@@ -265,6 +279,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-heures.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-heures.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-heures.html"/>
+  </url>
+  <url>
+    <loc>https://xavieryou.com/it/serie-chapelle.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xavieryou.com/serie-chapelle.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xavieryou.com/en/series-chapelle.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://xavieryou.com/it/serie-chapelle.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xavieryou.com/serie-chapelle.html"/>
   </url>
   <url>
     <loc>https://xavieryou.com/it/serie-lianes.html</loc>
